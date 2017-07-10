@@ -149,8 +149,9 @@ float tsp::nearest_neighbor()
         if (last_run < best_start_distance)
         {
             best_start_distance = last_run;
-            cout << "Writing solution " << best_start_distance << endl;
-            write_solution(OUTPUT_FN);  //write each time an improvement is found
+            cout << best_start_distance << endl;
+            break;
+            //write_solution(OUTPUT_FN);  //write each time an improvement is found
         }
     }
 
