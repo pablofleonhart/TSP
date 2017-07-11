@@ -19,28 +19,28 @@ const char OUTPUT_FN[] = "mysolution.txt";
 class tsp
 {
     public:
-        tsp(const char * filename); //Constructor, takes filename to read from as input
-        tsp(tsp & source);
+        tsp( const char * filename );
+        tsp( tsp & source );
         ~tsp();
-        float read_file(const char * filename); //Reads a list of cities into original_list from filename
-        void write_solution(const char * file_name); //Writes a solution to file_name
-        float brute_force_wrapper(); //Public function for brute force TSP solution
-        float nearest_neighbor(); //Nearest neighbor with 2-opt (calls nearest_neighbor_basic() and two_change())
-        float nearest_neighbor_basic(int start_index); //Generates basic nearest neighbor tour beginning at start_index
-        float two_change(); //Semi-naive 2-opt implementation.
-        float two_opt(); //Attempt at 2-opt with neighbor lists (NOT WORKING)
-        float swap_two(int i, int k); //Used by two_opt()
-        float get_solution_distance(); //Finds total distance of tour in solution
-        void display_neighbor_lists(); //Displays neighbor lists for testing
-        void fix_positions(); //Updates pos of cities in solution
-        void rotate(int pos); //Used by brute_force(...) to create permutations
+        float readFile( const char * filename );
+        void writeSolution( const char * file_name );
+        float bruteForceWrapper();
+        float nearestNeighbor();
+        float nearestNeighborBasic( int start_index );
+        float twoChange();
+        float twoOpt();
+        float swapTwo( int i, int k );
+        float getSolutionDistance();
+        void displayNeighborLists();
+        void fixPositions();
+        void rotate( int pos );
     private:
-        void brute_force(deque <city*> & best_path, float & min_distance, float cities_left); //Recursive function called by brute_force_wrapper()
-        deque <city*> original_list; //Stores the initial list of cities
-        deque <city*> solution; //Stores the current solution
-        int num_cities; //Stores the number of cities read into original_list
+        void bruteForce( deque <city*> & best_path, float & min_distance, float cities_left );
+        deque <city*> original_list;
+        deque <city*> solution;
+        int num_cities;
 };
 
-void copy_city_deque(deque <city*> & source, deque <city*> & dest); //Copies a deque of city*
-void end_opt(int signum); //Terminates optimization after SIGTERM signal received
+void copyCityDeque( deque <city*> & source, deque <city*> & dest );
+void endOpt( int signum );
 #endif

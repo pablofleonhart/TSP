@@ -13,10 +13,10 @@ int main( int argc, char * argv[] )
 {
     srand( time( 0 ) );  
     
-    tsp test(argv[1]);              //read in command line input
+    tsp test(argv[1]);
     auto start = std::chrono::high_resolution_clock::now();
-    test.nearest_neighbor();        //run nearest neighbor function
+    test.nearestNeighbor();
     auto elapsed = std::chrono::high_resolution_clock::now() - start;
-	cout << std::chrono::duration_cast<std::chrono::milliseconds>( elapsed ).count() << endl;
+	//cout << std::chrono::duration_cast<std::chrono::milliseconds>( elapsed ).count() << endl;
     return 0;
 }
